@@ -1,0 +1,25 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Company.Sherad/bin/Debug/net8.0
+/Company.Sherad/obj
+/Exchange/Company.Leads.Producer/.vs
+/Exchange/Company.Leads.Producer/bin/Debug/net8.0
+/Exchange/Company.Leads.Producer/obj
+/Exchange/Company.Payment.Processing.Consumer/bin/Debug/net8.0
+/Exchange/Company.Payment.Processing.Consumer/obj
+/Exchange/Company.Register.Customer.Consumer/bin/Debug/net8.0
+/Exchange/Company.Register.Customer.Consumer/obj
+/Queue/Company.Leads.Producer/.vs
+/Queue/Company.Leads.Producer/bin/Debug/net8.0
+/Queue/Company.Leads.Producer/obj
+/Queue/Company.Payment.Processing.Consumer/bin/Debug/net8.0
+/Queue/Company.Payment.Processing.Consumer/obj
+/Queue/Company.Register.Customer.Consumer/bin/Debug/net8.0
+/Queue/Company.Register.Customer.Consumer/obj
+/Company.Payment.Processing.Consumer/bin/Debug/net8.0
+/Company.Payment.Processing.Consumer/obj
+/Company.Register.Customer.Consumer/bin/Debug/net8.0
+/Company.Register.Customer.Consumer/obj
