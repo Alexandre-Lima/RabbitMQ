@@ -3,7 +3,7 @@ using Company.Sherad;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
-namespace Company.Leads.Producer
+namespace Exchange.Company.Leads.Producer
 {
     public class ProducerExchange : Connection
     {
@@ -22,7 +22,7 @@ namespace Company.Leads.Producer
                   exchange: exchange,
                   routingKey: string.Empty);
 
-            SendMessageExchange(channel, exchange, 50);
+            SendMessageExchange(channel, exchange, 1);
 
             Console.WriteLine(" Press [enter] to exit.");
             Console.ReadLine();
@@ -41,6 +41,7 @@ namespace Company.Leads.Producer
                      exchange: exchange,
                      routingKey: string.Empty,
                      basicProperties: null,
+                     
                      body: body);
 
             }

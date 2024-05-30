@@ -23,3 +23,6 @@
 /Company.Payment.Processing.Consumer/obj
 /Company.Register.Customer.Consumer/bin/Debug/net8.0
 /Company.Register.Customer.Consumer/obj
+/DeadLetter/Company.Leads.Producer/.vs
+/DeadLetter/Company.Leads.Producer/bin/Debug/net8.0
+/DeadLetter/Company.Leads.Producer/obj

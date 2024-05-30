@@ -3,7 +3,7 @@ using Company.Sherad;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
-namespace Company.Leads.Producer
+namespace Queue.Company.Leads.Producer
 {
     public class ProducerQueue : Connection
     {

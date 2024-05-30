@@ -11,13 +11,13 @@ namespace Company.Sherad
             return connection.CreateModel();
         }
 
-        public IModel QueueDeclare(IModel channel, string queue)
+        public IModel QueueDeclare(IModel channel, string queue, Dictionary<string, object> arguments = null)
         {
             channel.QueueDeclare(queue: queue,
                                  durable: false,
                                  exclusive: false,
                                  autoDelete: false,
-                                 arguments: null);
+                                 arguments: arguments);
 
             return channel;
         }

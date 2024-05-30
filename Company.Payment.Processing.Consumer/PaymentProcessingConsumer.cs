@@ -10,19 +10,35 @@ namespace Company.Payment.Processing.Consumer
     {
         public void Exec()
         {
+            Dictionary<string, object> args = new()
+            {
+                { "x-dead-letter-exchange", "exchange-deadletter" },
+                { "x-dead-letter-routing-key", "routing-key-deadletter" }
+            };
+
             const string queueName = "processamento-pagamento";
-            var channel = QueueDeclare(CreateConnection(), queueName);
+            var channel = QueueDeclare(CreateConnection(), queueName, args);
 
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += (model, ea) =>
             {
                 var result = Encoding.UTF8.GetString(ea.Body.ToArray());
                 var message = JsonConvert.DeserializeObject<Sherad.Consumer>(result);
-                Console.WriteLine(string.Format("\nCardHolder:{0}\nCardNumber:{1}\n\rCardExpiry {2}", message.CardHolder, message.CardNumber, message.CardExpiry));
+
+                if (message!.CardNumber.Equals("0000"))
+                {
+                    channel.BasicNack(ea.DeliveryTag, false, false);
+                }
+                else
+                {
+
+                    Console.WriteLine(string.Format("\nCardHolder:{0}\nCardNumber:{1}\n\rCardExpiry {2}", message.CardHolder, message.CardNumber, message.CardExpiry));
+                    channel.BasicAck(ea.DeliveryTag, false);
+                }
             };
 
             channel.BasicConsume(queue: queueName,
-                       autoAck: true,
+                       autoAck: false,
                        consumer: consumer);
 
             Console.WriteLine(" Press [enter] to exit.");
